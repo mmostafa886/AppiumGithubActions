@@ -21,7 +21,7 @@ public class ToDoIOS extends TestBase {
     }
     @Test(dataProvider = "task data")
     public void firstAddTaskIOS(String taskName, String taskDesc) throws MalformedURLException {
-        iOS_setUp("10000", "iPhone 12", "513C585D-7277-4EB2-AFBA-FA0B87CF02A8","17.0","8100");
+        iOS_setUp();
         taskListPage = new TaskListPage(driver);
         createTaskPage = new CreateTaskPage(driver);
         taskListPage.initializeElements();
@@ -35,7 +35,7 @@ public class ToDoIOS extends TestBase {
 
     @Test(dataProvider = "task data")
     public void secondAddTaskIOS(String taskName, String taskDesc) throws MalformedURLException {
-        iOS_setUp("10001", "iPhone 12", "BA8CB280-F216-4768-AEDA-D8840E5D061B","16.4","8200");
+        iOS_setUp();
         taskListPage = new TaskListPage(driver);
         createTaskPage = new CreateTaskPage(driver);
         taskListPage.initializeElements();
