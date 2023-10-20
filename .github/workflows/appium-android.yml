@@ -35,7 +35,7 @@ jobs:
         target: ${{ matrix.target }}
         profile: Nexus 6
         arch: arm64-v8a
-        script: emulator -avd Nexus 6
+        script: ./gradlew connectedCheck
     - name: Maven CLI JDKs Action
       uses: GuillaumeFalourd/maven-cli-jdks-action@v1
       with:
