@@ -35,8 +35,5 @@ jobs:
         target: ${{ matrix.target }}
         profile: Nexus 6
         arch: x86_64
-        script: ./gradlew connectedCheck
-    - name: Maven CLI JDKs Action
-      uses: GuillaumeFalourd/maven-cli-jdks-action@v1
-      with:
-        commands: mvn clean test -Pandroid
+        script: mvn clean test -Pandroid
+       # script: ./gradlew connectedCheck
