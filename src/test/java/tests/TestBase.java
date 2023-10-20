@@ -5,8 +5,6 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.ios.IOSDriver;
 import io.cucumber.testng.AbstractTestNGCucumberTests;
 import org.openqa.selenium.remote.DesiredCapabilities;
-
-import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 
@@ -15,7 +13,7 @@ public class TestBase extends AbstractTestNGCucumberTests {
 
     public static void Android_setUp() throws MalformedURLException {
         DesiredCapabilities caps = new DesiredCapabilities();
-        caps.setCapability("avd", "Pixel6A12");
+//        caps.setCapability("avd", "Pixel6A12");
         caps.setCapability("automationName","UiAutomator2");
         caps.setCapability("platformName", "Android");
         caps.setCapability("platformVersion", "12.0");
