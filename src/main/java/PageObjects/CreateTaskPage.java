@@ -17,7 +17,6 @@ public class CreateTaskPage extends PageBase {
 
 public void initializeCreateTaskElements() {
     if ("Android".equalsIgnoreCase(String.valueOf(driver.getCapabilities().getPlatformName()))) {
-//        taskTitle = driver.findElement(By.id("editTextTitre"));
         taskTitle = driver.findElement(By.xpath("//*[@text='Title']"));
         taskDescription = driver.findElement(new By.ById("editTextNote"));
         saveBtn = driver.findElement(new By.ById("action_save"));

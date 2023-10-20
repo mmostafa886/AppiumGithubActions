@@ -11,11 +11,13 @@ public class TaskListPage extends PageBase {
     }
     public WebElement addTaskBtn;
 
+
     public void initializeElements() {
         if ("Android".equalsIgnoreCase(String.valueOf(driver.getCapabilities().getPlatformName()))) {
             addTaskBtn = driver.findElement(new By.ById("fab"));
         }else if ("iOS".equalsIgnoreCase(String.valueOf(driver.getCapabilities().getPlatformName()))) {
             addTaskBtn = driver.findElement(new AppiumBy.ByAccessibilityId("Add"));
+
         }else {
             throw new IllegalArgumentException("Driver is not initialized properly.");
         }
@@ -24,4 +26,5 @@ public class TaskListPage extends PageBase {
         waitForVisibility(addTaskBtn);
         click(addTaskBtn);
     }
+
 }

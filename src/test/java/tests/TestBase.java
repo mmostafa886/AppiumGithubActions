@@ -27,7 +27,8 @@ public class TestBase extends AbstractTestNGCucumberTests {
         DesiredCapabilities caps = new DesiredCapabilities();
         caps.setCapability("automationName","XCUITest");
         caps.setCapability("platformName", "iOS");
-        caps.setCapability("deviceName", "iPhone X");
+//        caps.setCapability("platformVersion", "16.4");
+        caps.setCapability("deviceName", "iPhone 12");
         caps.setCapability("isHeadless", true);
         caps.setCapability("app",
                 System.getProperty("user.dir") + "/apps/To-Do.app");

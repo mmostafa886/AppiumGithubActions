@@ -88,8 +88,6 @@
                         <artifactId>maven-surefire-plugin</artifactId>
                         <version>3.1.2</version>
                         <configuration>
-                            <parallel>methods</parallel>
-                            <threadCount>2</threadCount>
                             <suiteXmlFiles>
                                 <suiteXmlFile>AndroidTestNG.xml</suiteXmlFile>
                             </suiteXmlFiles>
