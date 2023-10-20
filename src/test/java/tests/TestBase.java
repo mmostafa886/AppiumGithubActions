@@ -23,19 +23,17 @@ public class TestBase extends AbstractTestNGCucumberTests {
         driver = new AndroidDriver(new URL("http://localhost:4723"), caps);
     }
 
-    public static void iOS_setUp(String port, String deviceName, String udid, String platformVersion, String wdaLocalPort) throws MalformedURLException {
+    public static void iOS_setUp() throws MalformedURLException {
         DesiredCapabilities caps = new DesiredCapabilities();
         caps.setCapability("automationName","XCUITest");
         caps.setCapability("platformName", "iOS");
-        caps.setCapability("platformVersion", platformVersion);
-        caps.setCapability("deviceName", deviceName);
+        caps.setCapability("deviceName", "iPhone X");
+        caps.setCapability("isHeadless", true);
         caps.setCapability("app",
                 System.getProperty("user.dir") + "/apps/To-Do.app");
 //        caps.setCapability("noReset", true);
 //        caps.setCapability("fullReset", true);
-        caps.setCapability("wdaLocalPort", wdaLocalPort);
-        caps.setCapability("udid", udid);
-        driver = new IOSDriver(new URL("http://localhost:"+port), caps);
+        driver = new IOSDriver(new URL("http://localhost:4723"), caps);
     }
 
     public static void tearDown() {
