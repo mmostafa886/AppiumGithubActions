@@ -29,35 +29,38 @@ jobs:
             appium -v
             appium driver install uiautomator2
             appium &>/dev/null &
-    - name: Gradle cache
-      uses: gradle/gradle-build-action@v2
+  ################################################################################
+  #The part between the 2 lines is used for the creation ofr Cached emulator
+  #This may save time when there is several tests to be executed or there is a need to close & open the emulator
+  #  - name: Gradle cache
+   #   uses: gradle/gradle-build-action@v2
         
-    - name: AVD cache
-      uses: actions/cache@v3
-      id: avd-cache
-      with:
-        path: |
-          ~/.android/avd/*
-          ~/.android/adb*
-        key: avd-${{ matrix.api-level }}
+    #- name: AVD cache
+     # uses: actions/cache@v3
+      #id: avd-cache
+      #with:
+       # path: |
+        #  ~/.android/avd/*
+         # ~/.android/adb*
+        #key: avd-${{ matrix.api-level }}
 
-    - name: create AVD and generate snapshot for caching
-      if: steps.avd-cache.outputs.cache-hit != 'true'
-      uses: reactivecircus/android-emulator-runner@v2
-      with:
-         api-level: ${{ matrix.api-level }}
-         force-avd-creation: false
-         profile: Nexus 6
-         arch: x86_64
-         emulator-options: -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
-         disable-animations: false
-         script: echo "Generated AVD snapshot for caching."     
-         
+    #- name: create AVD and generate snapshot for caching
+     # if: steps.avd-cache.outputs.cache-hit != 'true'
+      #uses: reactivecircus/android-emulator-runner@v2.28.0
+      #with:
+       #  api-level: ${{ matrix.api-level }}
+        # force-avd-creation: false
+         #profile: Nexus 6
+         #arch: x86_64
+         #emulator-options: -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
+         #disable-animations: false
+         #script: echo "Generated AVD snapshot for caching."     
+################################################################################         
     - name: Run Appium Tests
       uses: reactivecircus/android-emulator-runner@v2.28.0
       with:
         api-level: ${{ matrix.api-level }}
-        force-avd-creation: false
+     #   force-avd-creation: false
         target: ${{ matrix.target }}
         profile: Nexus 6
         arch: x86_64
