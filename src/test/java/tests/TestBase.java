@@ -13,7 +13,6 @@ public class TestBase extends AbstractTestNGCucumberTests {
 
     public static void Android_setUp() throws MalformedURLException {
         DesiredCapabilities caps = new DesiredCapabilities();
-        caps.setCapability("avd","Nexus 6");
         caps.setCapability("automationName","UiAutomator2");
         caps.setCapability("platformName", "Android");
         caps.setCapability("platformVersion", "12");
