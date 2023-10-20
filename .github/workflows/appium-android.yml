@@ -34,4 +34,5 @@ jobs:
         api-level: ${{ matrix.api-level }}
         target: ${{ matrix.target }}
         profile: Nexus 6
+        arch: arm64-v8a
         script: mvn clean test -Pandroid
