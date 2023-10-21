@@ -41,7 +41,7 @@ jobs:
           arch: x86_64
           emulator-options: -no-snapshot-save -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
           disable-animations: true
-          script: mvn clean test -Pandroid
+          script: mvn clean test -Pandroid allure:serve
           # script: ./gradlew connectedCheck
 
       - name: Allure report simple
