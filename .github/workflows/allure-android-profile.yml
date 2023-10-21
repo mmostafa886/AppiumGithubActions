@@ -48,5 +48,5 @@ jobs:
         uses: esemi/action-allure-report@v0.2.0
         with:
          # Allure test result data dir
-         results-dir: target/allure-results # default is allure-results
+         results-dir: allure-results # default is allure-results
 

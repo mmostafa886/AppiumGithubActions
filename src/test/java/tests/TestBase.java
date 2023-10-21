@@ -15,7 +15,7 @@ public class TestBase extends AbstractTestNGCucumberTests {
         DesiredCapabilities caps = new DesiredCapabilities();
         caps.setCapability("automationName","UiAutomator2");
         caps.setCapability("platformName", "Android");
-        caps.setCapability("platformVersion", "12");
+//        caps.setCapability("platformVersion", "12");
         caps.setCapability("deviceName", "Android Emulator");
         caps.setCapability("app",
                 System.getProperty("user.dir") + "/apps/ToDo.apk");
