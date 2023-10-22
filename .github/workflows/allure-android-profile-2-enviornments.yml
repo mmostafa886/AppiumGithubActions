@@ -42,6 +42,7 @@ jobs:
           # script: ./gradlew connectedCheck
   publishRepport:
     runs-on: ubuntu-latest
+    needs: build
     steps:
       - name: Get Allure history
         uses: actions/checkout@v3
