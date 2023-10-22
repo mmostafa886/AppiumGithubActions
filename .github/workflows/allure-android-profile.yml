@@ -42,7 +42,7 @@ jobs:
           # script: ./gradlew connectedCheck
 
       - name: Get Allure history
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         if: always()
         continue-on-error: true
         with:
@@ -64,5 +64,5 @@ jobs:
         uses: peaceiris/actions-gh-pages@v2
         env:
           PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          PUBLISH_BRANCH: allure-android-profile
+          PUBLISH_BRANCH: gh-pages
           PUBLISH_DIR: allure-history
