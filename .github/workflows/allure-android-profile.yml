@@ -2,7 +2,7 @@ name: Appium Android Allure
 
 on:
   push:
-    branches: [ allure-android-profile ]
+    branches: [ allure-android-profile(2-environmentsjvvvvvjvjv) ]
 
 jobs:
   build:
@@ -41,7 +41,10 @@ jobs:
           script: mvn clean test -Pandroid
           # script: ./gradlew connectedCheck
 
-      - name: Get Allure history
+
+  build:
+   runs-on: ubuntu-latest
+       - name: Get Allure history
         uses: actions/checkout@v3
         if: always()
         continue-on-error: true
