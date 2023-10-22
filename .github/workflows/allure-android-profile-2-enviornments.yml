@@ -49,8 +49,8 @@ jobs:
         if: always()
         continue-on-error: true
         with:
-          ref: allure-android-profile
-          path: allure-android-profile
+          ref: gh-pages
+          path: gh-pages
 
       - name: Allure Report action from marketplace
         uses: simple-elf/allure-report-action@master
