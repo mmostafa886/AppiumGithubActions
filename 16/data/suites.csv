@@ -1,0 +1,4 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"skipped","Sun Oct 22 12:24:09 GMT 2023","Sun Oct 22 12:24:09 GMT 2023","1","Suite","Android","tests.ToDoAndroid","tests.ToDoAndroid","addTaskAndroidV2","addTaskAndroidV2",""
+"skipped","Sun Oct 22 12:24:09 GMT 2023","Sun Oct 22 12:24:09 GMT 2023","1","Suite","Android","tests.ToDoAndroid","tests.ToDoAndroid","addTaskAndroidV2","addTaskAndroidV2",""
+"broken","Sun Oct 22 12:24:09 GMT 2023","Sun Oct 22 12:24:09 GMT 2023","8","Suite","Android","tests.ToDoAndroid","tests.ToDoAndroid","androidTestSetup","androidTestSetup",""
