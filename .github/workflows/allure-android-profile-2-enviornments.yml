@@ -2,7 +2,7 @@ name: Appium Android Allure
 
 on:
   push:
-    branches: [ allure-android-profile(2-environments) ]
+    branches: [ allure-android-profile(2-environments_Old) ]
 
 jobs:
   build:
