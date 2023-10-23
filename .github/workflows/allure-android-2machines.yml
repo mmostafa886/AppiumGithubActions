@@ -1,4 +1,4 @@
-name: Appium Android Allure
+name: Appium Android Allure002
 
 on:
   push:
@@ -61,7 +61,6 @@ jobs:
 
       - name: Install Allure command-line tool
         run: |
-          sudo apt-add-repository ppa:qameta/allure -y
           sudo apt-get update
           sudo apt-get install allure -y
 
