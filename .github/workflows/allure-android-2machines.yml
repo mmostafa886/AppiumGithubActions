@@ -1,5 +1,5 @@
 name: Appium Android Allure002
-
+#This is the working version of the workflow for executing tests & generating allure reports with History
 on:
   push:
     branches: [ allure-android-profile(2-environments) ]

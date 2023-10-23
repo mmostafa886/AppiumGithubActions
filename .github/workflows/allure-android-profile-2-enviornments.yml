@@ -1,8 +1,9 @@
 name: Appium Android Allure002
-
+#Not to be used, kept for keeping track & History
 on:
   push:
-    branches: [ allure-android-profile(2-environments) ]
+    #The branch mentioned here is not there at all, just added this way not to fire the workflow when there is a change in the project
+    branches: [ allure-android-profile(2-environments_Old) ]
 
 jobs:
   run-tests:
