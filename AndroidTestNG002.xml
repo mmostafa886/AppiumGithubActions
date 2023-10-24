@@ -1,0 +1,7 @@
+<suite name="Suite" parallel="tests">
+    <test name="Android">
+        <classes>
+            <class name="tests.ToDoAndroid_NoHooks"/>
+        </classes>
+    </test>
+</suite>

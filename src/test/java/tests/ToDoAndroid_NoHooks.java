@@ -21,13 +21,6 @@ public class ToDoAndroid_NoHooks extends TestBase {
                 + "/data/TaskData.json", "Task Data", 2);
     }
 
-//    @BeforeTest
-    public void androidTestSetup() throws MalformedURLException {
-        Android_setUp();
-        taskListPage = new TaskListPage(driver);
-        createTaskPage = new CreateTaskPage(driver);
-    }
-
     @Test(dataProvider = "task data")
     public void addTaskAndroidV2(String taskName, String taskDesc) throws InterruptedException, MalformedURLException {
         Android_setUp();
@@ -42,11 +35,6 @@ public class ToDoAndroid_NoHooks extends TestBase {
 tearDown();
 
         Thread.sleep(2000);
-    }
-
-//    @AfterTest
-    public void testTearDown() {
-        tearDown();
     }
 
 }
