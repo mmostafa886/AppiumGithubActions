@@ -1,21 +1,30 @@
 package utils;
 
+import PageObjects.PageBase;
 import io.appium.java_client.AppiumBy;
+import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.By;
-public class CustomLocator {
+import org.openqa.selenium.WebElement;
+
+public class CustomLocator extends PageBase {
 
 
-    public static By elementLocator(String locatorType, String locatorValue) {
+    public CustomLocator(AppiumDriver appiumDriver) {
+        super(appiumDriver);
+    }
+
+    public static WebElement customElementLocator(String locatorType, String locatorValue) {
         switch (locatorType.toLowerCase()) {
             case "id":
-                return new By.ById(locatorValue);
+                return driver.findElement(new By.ById(locatorValue));
             case "xpath":
-                return By.xpath(locatorValue);
-            // Add more cases for other locator types as needed
+                return driver.findElement(By.xpath(locatorValue));
             case "accessbilityid":
-                return new AppiumBy.ByAccessibilityId(locatorValue);
+                return driver.findElement(new AppiumBy.ByAccessibilityId(locatorValue));
+            case "iosn":
+                return driver.findElement(AppiumBy.iOSNsPredicateString(locatorValue));
             default:
-                throw new UnsupportedOperationException("Locator type not supported for Android!");
+                throw new UnsupportedOperationException("The used Locator doesn't reveal any element!");
         }
     }
 

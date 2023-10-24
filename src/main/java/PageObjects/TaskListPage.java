@@ -1,8 +1,9 @@
 package PageObjects;
 
-import io.appium.java_client.AppiumBy;
 import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.WebElement;
+
+import static utils.CustomLocator.customElementLocator;
 
 public class TaskListPage extends PageBase {
     public WebElement addTaskBtn;
@@ -14,9 +15,9 @@ public class TaskListPage extends PageBase {
     public void initializeTaskListElements() {
         String platform = String.valueOf(driver.getCapabilities().getPlatformName());
         if ("Android".equalsIgnoreCase(platform)) {
-//            addTaskBtn = driver.findElement(new By.ById("fab"));
+            addTaskBtn= customElementLocator("id","fab");
         }else if ("iOS".equalsIgnoreCase(platform)) {
-            addTaskBtn = driver.findElement(new AppiumBy.ByAccessibilityId("Add"));
+            addTaskBtn= customElementLocator("accessbilityid", "Add");
         }else {
             throw new IllegalArgumentException("Driver is not initialized properly.");
         }

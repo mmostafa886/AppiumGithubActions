@@ -8,15 +8,15 @@ import java.time.Duration;
 
 public class PageBase {
 
-    AppiumDriver driver;
-    WebDriverWait wait;
+   public static AppiumDriver driver;
+    public WebDriverWait wait;
     public static final long WAIT = 10;
     public PageBase(AppiumDriver appiumDriver){
         driver = appiumDriver;
     }
 
     public void waitForVisibility(WebElement element){
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(WAIT));
+        wait = new WebDriverWait(driver, Duration.ofSeconds(WAIT));
         wait.until(ExpectedConditions.visibilityOf(element));
     }
 

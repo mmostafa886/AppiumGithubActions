@@ -1,9 +1,9 @@
 package PageObjects;
 
-import io.appium.java_client.AppiumBy;
 import io.appium.java_client.AppiumDriver;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+
+import static utils.CustomLocator.customElementLocator;
 
 public class CreateTaskPage extends PageBase {
     public WebElement taskTitle;
@@ -18,13 +18,13 @@ public class CreateTaskPage extends PageBase {
     public void initializeCreateTaskElements() {
         String platform = String.valueOf(driver.getCapabilities().getPlatformName());
         if ("Android".equalsIgnoreCase(platform)) {
-            taskTitle = driver.findElement(By.xpath("//*[@text='Title']"));
-            taskDescription = driver.findElement(new By.ById("editTextNote"));
-            saveBtn = driver.findElement(new By.ById("action_save"));
+            taskTitle = customElementLocator("xpath","//*[@text='Title']");
+            taskDescription = customElementLocator("id", "editTextNote");
+            saveBtn = customElementLocator("id", "action_save");
         } else if ("iOS".equalsIgnoreCase(platform)) {
-            taskTitle = driver.findElement(AppiumBy.iOSNsPredicateString("value == 'Enter task name'"));
-            taskDescription = driver.findElement(AppiumBy.iOSNsPredicateString("type == 'XCUIElementTypeTextView'"));
-            saveBtn = driver.findElement(AppiumBy.iOSNsPredicateString("label == 'add'"));
+            taskTitle = customElementLocator("iosn","value == 'Enter task name'");
+            taskDescription = customElementLocator("iosn","type == 'XCUIElementTypeTextView'");
+            saveBtn = customElementLocator("iosn","label == 'add'");
         } else {
             throw new IllegalArgumentException("Driver is not initialized properly.");
         }
