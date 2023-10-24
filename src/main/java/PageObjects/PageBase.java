@@ -1,17 +1,10 @@
 package PageObjects;
 
-import io.appium.java_client.AppiumBy;
 import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.remote.RemoteWebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import java.time.Duration;
-import java.util.Map;
-
-import static org.openqa.selenium.support.ui.ExpectedConditions.presenceOfElementLocated;
 
 public class PageBase {
 
@@ -19,9 +12,7 @@ public class PageBase {
     WebDriverWait wait;
     public static final long WAIT = 10;
     public PageBase(AppiumDriver appiumDriver){
-
         driver = appiumDriver;
-//       wait = new WebDriverWait(driver, Duration.ofSeconds(WAIT));
     }
 
     public void waitForVisibility(WebElement element){

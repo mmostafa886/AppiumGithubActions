@@ -24,13 +24,14 @@ public class ToDoIOS extends TestBase {
     @Test(dataProvider = "task data")
     public void firstAddTaskIOS(String taskName, String taskDesc) throws MalformedURLException {
         iOS_setUp();
-        taskListPage = new TaskListPage(driver);
-        createTaskPage = new CreateTaskPage(driver);
+
         homePage = new HomePage(driver);
         homePage.clickNextBtn();
-        taskListPage.initializeElements();
+
+        taskListPage = new TaskListPage(driver);
         taskListPage.clickAddTaskBtn();
-        createTaskPage.initializeCreateTaskElements();
+        createTaskPage = new CreateTaskPage(driver);
+
         createTaskPage.enterTaskName(taskName);
         createTaskPage.enterTaskDescription(taskDesc );
         createTaskPage.clickAddTaskBtn();

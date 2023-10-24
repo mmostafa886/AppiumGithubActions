@@ -24,15 +24,17 @@ public class ToDoAndroid_NoHooks extends TestBase {
     @Test(dataProvider = "task data")
     public void addTaskAndroidV2(String taskName, String taskDesc) throws InterruptedException, MalformedURLException {
         Android_setUp();
+
         taskListPage = new TaskListPage(driver);
-        createTaskPage = new CreateTaskPage(driver);
-        taskListPage.initializeElements();
         taskListPage.clickAddTaskBtn();
+
+        createTaskPage = new CreateTaskPage(driver);
         createTaskPage.initializeCreateTaskElements();
         createTaskPage.enterTaskName(taskName);
         createTaskPage.enterTaskDescription(taskDesc);
         createTaskPage.clickAddTaskBtn();
-tearDown();
+
+        tearDown();
 
         Thread.sleep(2000);
     }
