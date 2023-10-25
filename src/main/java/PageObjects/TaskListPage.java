@@ -14,6 +14,7 @@ public class TaskListPage extends PageBase {
 
     public void initializeTaskListElements() {
         String platform = String.valueOf(driver.getCapabilities().getPlatformName());
+        //Based on the platform retrieved from the current test, The locator is retrieved (whether Android or iOS)
         if ("Android".equalsIgnoreCase(platform)) {
             addTaskBtn= customElementLocator("id","fab");
         }else if ("iOS".equalsIgnoreCase(platform)) {

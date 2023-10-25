@@ -42,3 +42,7 @@
                 </plugins>
             </build>
         </profile>
+
+
+4. To run a generic test cases (through the profile, config files,..... ), the user need to execute the command (mvn clean test -Pandroid -DconfigFilePath=configFiles/android.properties allure:serve) [of course after doing all the needed config provided within this branch].
+5. To write a general command (mvn clean test -P<profile_from_xml> -DconfigFilePath=<path_to_properties_file> allure:serve)

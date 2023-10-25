@@ -6,6 +6,11 @@ import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
+/**
+ * This class is providing a custom locator which can be used for both Android & iOS
+ * By providing a locator_type & locator_value
+ */
+
 public class CustomLocator extends PageBase {
 
 

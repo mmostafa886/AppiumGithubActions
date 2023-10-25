@@ -4,36 +4,28 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.ios.IOSDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import utils.ConfigFileReader;
+
 import java.net.MalformedURLException;
 import java.net.URL;
 
 public class TestBase{
     public static AppiumDriver driver;
 
-    public static void Android_setUp() throws MalformedURLException {
+    public static void genericSetUp() throws MalformedURLException {
         DesiredCapabilities caps = new DesiredCapabilities();
-        caps.setCapability("automationName","UiAutomator2");
-        caps.setCapability("platformName", "Android");
-//        caps.setCapability("platformVersion", "12");
-        caps.setCapability("deviceName", "Android Emulator");
-        caps.setCapability("app",
-                System.getProperty("user.dir") + "/apps/ToDo.apk");
-//        caps.setCapability("noReset", true);
+
+        // Retrieve the config file path from command line
+        String configFilePath = System.getProperty("configFilePath");
+        // Initialize ConfigReader with the specified config file path
+        ConfigFileReader config = new ConfigFileReader(configFilePath);
+
+        caps.setCapability("automationName", config.getAutomationName());
+        caps.setCapability("platformName", config.getPlatformName());
+        caps.setCapability("deviceName", config.getDeviceName());
+        caps.setCapability("platformVersion", config.getPlatformVersion());
+        caps.setCapability("app", System.getProperty("user.dir") +config.getAppPath());
         driver = new AndroidDriver(new URL("http://localhost:4723"), caps);
-
-    }
-
-    public static void iOS_setUp() throws MalformedURLException {
-        DesiredCapabilities caps = new DesiredCapabilities();
-        caps.setCapability("automationName","XCUITest");
-        caps.setCapability("platformName", "iOS");
-        caps.setCapability("platformVersion", "16.4");
-        caps.setCapability("deviceName", "iPhone 12");
-//        caps.setCapability("isHeadless", true); //In case of using CI pipeline(Like Github Actions)
-        caps.setCapability("app",
-                System.getProperty("user.dir") + "/apps/To-Do.app");
-//        caps.setCapability("noReset", true);
-        driver = new IOSDriver(new URL("http://localhost:4723"), caps);
     }
 
     public static void tearDown() {
