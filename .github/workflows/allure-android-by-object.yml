@@ -2,15 +2,15 @@ name: Appium Android Allure002
 #This is the working version of the workflow for executing tests & generating allure reports with History
 on:
   push:
-    branches: [ allure-android-by-object ]
+    branches: [ <Branch_Name> ]
 
 jobs:
   run-tests:
     runs-on: macos-latest
     strategy:
       matrix:
-        api-level: [31]
-        target: [default]
+        api-level: [ 31 ]
+        target: [ default ]
     steps:
       - uses: actions/checkout@v3
       - name: Set up JDK 11
@@ -27,9 +27,9 @@ jobs:
           appium -v
           appium driver install uiautomator2
           appium &>/dev/null &
-    ################################################################################
-    #The part between the 2 lines is used for the creation ofr Cached emulator
-    #This may save time when there is several tests to be executed or there is a need to close & open the emulator
+      ################################################################################
+      #The part between the 2 lines is used for the creation ofr Cached emulator
+      #This may save time when there is several tests to be executed or there is a need to close & open the emulator
       - name: Gradle cache
         uses: gradle/gradle-build-action@v2
 
@@ -37,23 +37,23 @@ jobs:
         uses: actions/cache@v3
         id: avd-cache
         with:
-         path: |
-           ~/.android/avd/*
-           ~/.android/adb*
-         key: avd-${{ matrix.api-level }}
+          path: |
+            ~/.android/avd/*
+            ~/.android/adb*
+          key: avd-${{ matrix.api-level }}
 
       - name: create AVD and generate snapshot for caching
         if: steps.avd-cache.outputs.cache-hit != 'true'
         uses: reactivecircus/android-emulator-runner@v2.28.0
         with:
-            api-level: ${{ matrix.api-level }}
-            force-avd-creation: false
-            profile: Nexus 6
-            arch: x86_64
-            emulator-options: -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
-            disable-animations: false
-            script: echo "Generated AVD snapshot for caching."
-################################################################################
+          api-level: ${{ matrix.api-level }}
+          force-avd-creation: false
+          profile: Nexus 6
+          arch: x86_64
+          emulator-options: -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
+          disable-animations: false
+          script: echo "Generated AVD snapshot for caching."
+      ################################################################################
       - name: Run Appium Tests
         uses: reactivecircus/android-emulator-runner@v2.28.0
         with:
@@ -64,14 +64,14 @@ jobs:
           arch: x86_64
           emulator-options: -no-snapshot-save -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
           disable-animations: true
-          script: mvn clean test -Pandroid
+          script: mvn clean test -Pgeneric -DconfigFilePath=configFiles/android.properties
 
       - name: Upload Allure reports
         uses: actions/upload-artifact@v3
         with:
           name: allure-results
           path: ./target/allure-results
-          
+
   generate-report:
     needs: run-tests
     runs-on: ubuntu-latest

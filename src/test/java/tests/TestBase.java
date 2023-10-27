@@ -9,12 +9,12 @@ import utils.ConfigFileReader;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public class TestBase{
+public abstract class TestBase {
     public static AppiumDriver driver;
+    public static String platform;
 
     public static void genericSetUp() throws MalformedURLException {
         DesiredCapabilities caps = new DesiredCapabilities();
-
         // Retrieve the config file path from command line
         String configFilePath = System.getProperty("configFilePath");
         // Initialize ConfigReader with the specified config file path
@@ -23,9 +23,18 @@ public class TestBase{
         caps.setCapability("automationName", config.getAutomationName());
         caps.setCapability("platformName", config.getPlatformName());
         caps.setCapability("deviceName", config.getDeviceName());
-        caps.setCapability("platformVersion", config.getPlatformVersion());
-        caps.setCapability("app", System.getProperty("user.dir") +config.getAppPath());
-        driver = new AndroidDriver(new URL("http://localhost:4723"), caps);
+//        caps.setCapability("platformVersion", config.getPlatformVersion()); //This is commented only for the CI, but it can be used normally when testing locally
+        caps.setCapability("app", System.getProperty("user.dir") + config.getAppPath());
+
+        platform = String.valueOf(config.getPlatformName());
+        if ("Android".equalsIgnoreCase(platform)) {
+            driver = new AndroidDriver(new URL("http://localhost:4723"), caps);
+        } else if ("iOS".equalsIgnoreCase(platform)) {
+            driver = new IOSDriver(new URL("http://localhost:4723"), caps);
+        } else {
+            throw new IllegalArgumentException("Platform not Supported!");
+        }
+
     }
 
     public static void tearDown() {

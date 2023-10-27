@@ -1,12 +1,16 @@
 package utils;
 
 import java.io.FileInputStream;
+import java.io.InputStream;
 import java.util.Properties;
-/**This class is used to process the data in the properties file (Ex. config.properties)
+
+/**
+ * This class is used to process the data in the properties file (Ex. config.properties)
  * by dealing with the config file path as a variable
- * so that we can pass it as a variable to the maven run command (mvn clean test -DconfigFilePath=<path_to_properties_file>) */
+ * so that we can pass it as a variable to the maven run command (mvn clean test -DconfigFilePath=<path_to_properties_file>)
+ */
 public class ConfigFileReader {
-    public Properties properties = new Properties();
+    public static Properties properties = new Properties();
 
     public ConfigFileReader(String configFilePath) {
         try (FileInputStream input = new FileInputStream(configFilePath)) {

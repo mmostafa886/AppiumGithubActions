@@ -18,13 +18,13 @@ public class CreateTaskPage extends PageBase {
     public void initializeCreateTaskElements() {
         String platform = String.valueOf(driver.getCapabilities().getPlatformName());
         if ("Android".equalsIgnoreCase(platform)) {
-            taskTitle = customElementLocator("xpath","//*[@text='Title']");
+            taskTitle = customElementLocator("xpath", "//*[@text='Title']");
             taskDescription = customElementLocator("id", "editTextNote");
             saveBtn = customElementLocator("id", "action_save");
         } else if ("iOS".equalsIgnoreCase(platform)) {
-            taskTitle = customElementLocator("iosn","value == 'Enter task name'");
-            taskDescription = customElementLocator("iosn","type == 'XCUIElementTypeTextView'");
-            saveBtn = customElementLocator("iosn","label == 'add'");
+            taskTitle = customElementLocator("iosn", "value == 'Enter task name'");
+            taskDescription = customElementLocator("iosn", "type == 'XCUIElementTypeTextView'");
+            saveBtn = customElementLocator("iosn", "label == 'add'");
         } else {
             throw new IllegalArgumentException("Driver is not initialized properly.");
         }

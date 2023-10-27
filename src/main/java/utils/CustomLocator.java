@@ -13,13 +13,14 @@ import org.openqa.selenium.WebElement;
 
 public class CustomLocator extends PageBase {
 
-
     public CustomLocator(AppiumDriver appiumDriver) {
         super(appiumDriver);
     }
 
     public static WebElement customElementLocator(String locatorType, String locatorValue) {
         switch (locatorType.toLowerCase()) {
+            /*For each newly added Locator needs to be mapped to a new "case" section to match how this locator operates
+             * An important factor here is that, we are having one locating method for both (Android & iOS)*/
             case "id":
                 return driver.findElement(new By.ById(locatorValue));
             case "xpath":
