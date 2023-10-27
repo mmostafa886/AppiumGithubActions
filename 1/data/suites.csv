@@ -1,3 +1,5 @@
 "Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
-"passed","Tue Oct 24 21:34:49 GMT 2023","Tue Oct 24 21:35:05 GMT 2023","15554","Suite","Android","tests.ToDoAndroid","tests.ToDoAndroid","addTaskAndroidV2","addTaskAndroidV2",""
-"passed","Tue Oct 24 21:33:42 GMT 2023","Tue Oct 24 21:34:13 GMT 2023","31035","Suite","Android","tests.ToDoAndroid","tests.ToDoAndroid","addTaskAndroidV2","addTaskAndroidV2",""
+"passed","Fri Oct 27 19:34:38 GMT 2023","Fri Oct 27 19:34:57 GMT 2023","18449","OS Dependant TestSuite","Suite001","tests.ToDoGeneric","tests.ToDoGeneric","addTaskGeneric001","addTaskGeneric001 on Android_19:34:38.958839","Add new Task for Platform: Android"
+"passed","Fri Oct 27 19:36:08 GMT 2023","Fri Oct 27 19:36:20 GMT 2023","12136","OS Dependant TestSuite","Suite002","tests.ToDoGeneric","tests.ToDoGeneric","addTaskGeneric002","addTaskGeneric002 on Android_19:36:08.190207","Add new Task for Platform: Android"
+"passed","Fri Oct 27 19:35:24 GMT 2023","Fri Oct 27 19:35:39 GMT 2023","14879","OS Dependant TestSuite","Suite002","tests.ToDoGeneric","tests.ToDoGeneric","addTaskGeneric002","addTaskGeneric002 on Android_19:35:24.897545","Add new Task for Platform: Android"
+"passed","Fri Oct 27 19:33:48 GMT 2023","Fri Oct 27 19:34:08 GMT 2023","19842","OS Dependant TestSuite","Suite001","tests.ToDoGeneric","tests.ToDoGeneric","addTaskGeneric001","addTaskGeneric001 on Android_19:33:48.260973","Add new Task for Platform: Android"
